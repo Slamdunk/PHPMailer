@@ -30,7 +30,7 @@ before_script:
       echo 'sendmail_path = "/usr/sbin/sendmail -t -i "' > $(php --ini|grep -m 1 "ini files in:"|cut -d ":" -f 2)/sendmail.ini
     fi
 
-script: ./vendor/bin/phpunit --configuration ./travis.phpunit.xml.dist
+script: ./vendor/bin/phpunit --configuration ./travis.phpunit.xml.dist --verbose
 
 after_script:
   - if [ "$CODE_COVERAGE" = 1 ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
